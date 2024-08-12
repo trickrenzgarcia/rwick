@@ -100,10 +100,10 @@ export default function Home() {
               <CardContent>
                 <div className="flex flex-col gap-4">
                   <p className="leading-7">
-                    Hello, I'm Patrick, a passionate and versatile web developer
+                    Hello, I&apos;m Patrick, a passionate and versatile web developer
                     with a love for crafting digital experiences that make an
                     impact. My journey into the world of programming began at
-                    the age of 17, and since then, I've been on a relentless
+                    the age of 17, and since then, I&apos;ve been on a relentless
                     quest to turn innovative ideas into reality.
                   </p>
                   <div>
@@ -111,13 +111,13 @@ export default function Home() {
                       Development Experience ⏳
                     </h3>
                     <p className="leading-7">
-                      I'm a skilled web developer with experience in{" "}
+                      I&apos;m a skilled web developer with experience in{" "}
                       <span className="text-blue-600 font-bold">TypeScript</span> and{" "}
                       <span className="text-primary font-bold">JavaScript</span>, and
                       expertise in frameworks like React, Node.js, and Next js.
-                      I'm a quick learner and collaborate closely with clients
+                      I&apos;m a quick learner and collaborate closely with clients
                       to create efficient, scalable, and user-friendly solutions
-                      that solve real-world problems. Let's work together to
+                      that solve real-world problems. Let&apos;s work together to
                       bring your ideas to life!
                     </p>
                   </div>

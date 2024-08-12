@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Patrick Renz Garcia | Portfolio",
-  description: "I'm a freelance web developer based in the Philippines.",
+  description: "Im a freelance web developer based in the Philippines.",
 
 };
 

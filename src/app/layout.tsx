@@ -19,21 +19,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <>
-            <Navbar />
-            {children}
-            <Footer />
-          </>
-        </ThemeProvider>
-      </body>
-    </html>
+    <>
+      <html
+        lang="en"
+        suppressHydrationWarning
+        className="scroll-smooth"
+      >
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <>
+              <Navbar />
+              {children}
+              <Footer />
+            </>
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
   );
 }

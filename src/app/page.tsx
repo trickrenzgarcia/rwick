@@ -21,7 +21,7 @@ const EDUCATION_DATA = [
     title: "STI College Caloocan",
     subtitle: "Bachelor of Science in Computer Science",
     href: "https://sti.edu",
-    date: "2022 - Present",
+    date: "Aug 2022 - July 2025",
     description: ""
   },
   {
@@ -29,15 +29,7 @@ const EDUCATION_DATA = [
     title: "City of Malabon University",
     subtitle: "Bachelor of Science in Information Technology",
     href: "https://cityofmalabonuniversity.edu.ph/",
-    date: "2020 - 2022",
-    description: ""
-  },
-  {
-    id: 3,
-    title: "STI College Caloocan",
-    subtitle: "ITMAWD - Mobile App and Web Development",
-    href: "https://sti.edu",
-    date: "2018 - 2020",
+    date: "Aug 2020 - June 2022",
     description: ""
   },
 ];
@@ -48,7 +40,7 @@ export default function Home() {
     <main className="w-full py-[70px]">
       <section className="w-full h-[600px] md:h-[500px] relative bg-cover flex flex-col overflow-hidden items-center justify-start">
         <div className="relative flex flex-col w-full h-screen justify-center items-center ">
-          <div className="container h-full w-full flex flex-col lg:flex-row items-center lg:justify-between">
+          <div className="container h-full max-w-7xl flex flex-col lg:flex-row items-center lg:justify-between">
             <div className="w-full justify-center items-center order-2 lg:order-1">
               <h3 className="text-4xl">Hey, I&apos;m</h3>
               <h1 className="text-4xl md:text-6xl font-extrabold">Patrick Renz Garcia</h1>
@@ -91,7 +83,7 @@ export default function Home() {
         </div>
       </section>
       <section className="w-full relative">
-        <div className="container flex flex-col lg:flex-row justify-center lg:justify-between gap-7">
+        <div className="container max-w-7xl mx-auto flex flex-col lg:flex-row justify-center lg:justify-between gap-7">
           <div className="w-full" id="about">
             <Card className="shadow-none">
               <CardHeader>
@@ -123,15 +115,10 @@ export default function Home() {
                   </div>
                 </div>
               </CardContent>
-              <CardFooter>
-                <Link href="/about">
-                  <p className="hover:underline text-gray-500">See more...</p>
-                </Link>
-              </CardFooter>
             </Card>
           </div>
           <div className="w-full" id="resume">
-            <Card className="shadow-none border-none">
+            <Card className="shadow-none border-none bg-transparent">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold">Education</CardTitle>
               </CardHeader>
@@ -156,46 +143,11 @@ export default function Home() {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
-                <Link href="/about#achievements">
-                  <p className="hover:underline text-gray-500">See more...</p>
-                </Link>
-              </CardFooter>
             </Card>
           </div>
         </div>
       </section>
-      <section className="w-full relative">
-        <div className="container flex" id="contact">
-          <Card className="w-full shadow-none border-none">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold">Get in touch</CardTitle>
-              <div className="w-12 h-[6px] bg-primary rounded-full"></div>
-            </CardHeader>
-            <CardContent className="w-full flex flex-col lg:flex-row gap-8">
-              <div className="flex flex-col gap-4">
-                <div className="flex gap-2">
-                  <FaRegEnvelope className="text-2xl text-yellow-500 dark:text-primary" />
-                  <span>
-                    <h3 className="text-lg font-bold">Email address</h3>
-                    <p className="text-muted-foreground">trickrenzgarcia@gmail.com</p>
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  <FaLocationDot className="text-2xl text-yellow-500 dark:text-primary" />
-                  <span>
-                    <h3 className="text-lg font-bold">City</h3>
-                    <p className="text-muted-foreground">Caloocan, Philippines</p>
-                  </span>
-                </div>
-              </div>
-              <div className="w-full">
-                <ContactForm />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      
     </main>
   );
 }

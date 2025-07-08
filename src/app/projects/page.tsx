@@ -1,10 +1,9 @@
-import ProjectsClient from '@/components/projects-client';
 import { db } from '@/drizzle/db';
-
-export const dynamic = 'force-dynamic';
+import ProjectsClient from '@/components/projects-client';
 
 async function fetchProjects() {
-  return await db.query.projects.findMany({ limit: 100 });
+  const projects = await db.query.projects.findMany({ limit: 100 });
+  return projects;
 }
 
 export default async function ProjectsPage() {

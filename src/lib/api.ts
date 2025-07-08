@@ -2,10 +2,7 @@ import { Project } from "@/types";
 
 function fetchApi(pathname: string, init?: RequestInit) {
   console.log("Fetching API:", pathname);
-  const url = new URL(
-    pathname,
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
-  );
+  const url = new URL(pathname, process.env.API_URL || "http://localhost:3000");
   return fetch(url, {
     ...init,
     headers: {

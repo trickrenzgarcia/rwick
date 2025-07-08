@@ -1,6 +1,9 @@
 import ProjectsClient from '@/components/projects-client';
 import { fetchProjects } from '@/lib/api';
 
+// Force dynamic rendering to avoid build-time fetch issues
+export const dynamic = 'force-dynamic';
+
 export default async function ProjectsPage() {
   const projects = await fetchProjects();
 

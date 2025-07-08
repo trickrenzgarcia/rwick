@@ -1,9 +1,8 @@
 import { Project } from "@/types";
 
 function fetchApi(pathname: string, init?: RequestInit) {
-  console.log("Fetching API:", pathname);
-  const url = new URL(pathname, process.env.API_URL || "http://localhost:3000");
-  return fetch(url, {
+  const baseUrl = process.env.API_URL || "http://localhost:3000";
+  return fetch(baseUrl + pathname, {
     ...init,
     headers: {
       "Content-Type": "application/json",

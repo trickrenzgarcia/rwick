@@ -4,7 +4,7 @@ export type Project = {
   description: string;
   image: string;
   url: string;
-  repo: string;
+  repo: string | null;
   tags: string[];
   createdAt: string;
 };

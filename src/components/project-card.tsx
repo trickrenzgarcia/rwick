@@ -1,15 +1,20 @@
 "use client";
 
-import { Project } from '@/types';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
-import { Code, Globe } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Project } from "@/types";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Button } from "./ui/button";
+import { Code, Globe } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function ProjectCard({
-  project
-}: { project: Project }) {
+export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Card className="rounded-lg bg-transparent shadow-xs py-3">
       <CardContent className="px-4">
@@ -28,15 +33,21 @@ export default function ProjectCard({
       <CardFooter className="px-4 py-0 gap-2">
         <Link href={project.url} target="_blank">
           <Button variant="outline" className="rounded-xs">
-            <Globe />{" "}See Demo
+            <Globe /> See Demo
           </Button>
         </Link>
-        <Link href={project.repo} target="_blank">
-          <Button variant="outline" className="rounded-xs">
-            <Code />{" "}Source Code
+        {project.repo ? (
+          <Link href={project.repo} target="_blank">
+            <Button variant="outline" className="rounded-xs">
+              <Code /> Source Code
+            </Button>
+          </Link>
+        ) : (
+          <Button variant="outline" className="rounded-xs" disabled>
+            <Code /> Source Code
           </Button>
-        </Link>
+        )}
       </CardFooter>
     </Card>
-  )
+  );
 }

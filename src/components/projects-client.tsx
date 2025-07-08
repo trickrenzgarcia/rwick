@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Checkbox } from "./ui/checkbox";
-import { Label } from "./ui/label";
 import ProjectCard from "./project-card";
 import { Project } from "@/types";
+import { ProjectFilterList } from './project-filter-list';
 
 const filterTags: string[] = [
   "AI",
@@ -47,7 +46,7 @@ export default function ProjectsClient({ projects }: { projects: Project[] }) {
             <span className="font-bold mb-2 sm:mb-0">Filter</span>
             <div className="flex flex-wrap gap-2 sm:flex-col sm:space-y-2 sm:gap-0">
               {filterTags.map((tag) => (
-                <FilterList
+                <ProjectFilterList
                   key={tag}
                   tag={tag}
                   isChecked={selectedTags.includes(tag)}
@@ -73,26 +72,4 @@ export default function ProjectsClient({ projects }: { projects: Project[] }) {
   );
 }
 
-function FilterList({
-  tag,
-  isChecked,
-  onToggle,
-}: {
-  tag: string;
-  isChecked: boolean;
-  onToggle: (tag: string, checked: boolean) => void;
-}) {
-  return (
-    <div className="flex items-center gap-2 px-2 py-1 sm:gap-3 sm:px-1">
-      <Checkbox
-        id={tag}
-        checked={isChecked}
-        onCheckedChange={(checked) => onToggle(tag, !!checked)}
-        className="flex-shrink-0"
-      />
-      <Label htmlFor={tag} className="text-sm sm:text-[16px] whitespace-nowrap">
-        {tag}
-      </Label>
-    </div>
-  );
-}
+

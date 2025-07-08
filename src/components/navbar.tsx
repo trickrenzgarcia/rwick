@@ -22,7 +22,7 @@ const Navbar = () => {
       id="navbar"
       className={`fixed top-0 w-full h-16 z-50 transition-none duration-300 ${
         isScrolled 
-          ? 'bg-background/40 backdrop-blur-sm border-b border-border/40' 
+          ? 'bg-background/40 backdrop-blur-xs border-b border-border/40' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}

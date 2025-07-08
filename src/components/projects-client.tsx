@@ -4,6 +4,7 @@ import * as React from "react";
 import ProjectCard from "./project-card";
 import { Project } from "@/types";
 import { ProjectFilterList } from './project-filter-list';
+import { motion } from "framer-motion"
 
 const filterTags: string[] = [
   "AI",
@@ -39,7 +40,12 @@ export default function ProjectsClient({ projects }: { projects: Project[] }) {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col sm:flex-row h-full gap-6"
+    >
       <aside className="w-full sm:w-56 md:w-64 lg:w-72 xl:w-80 sm:min-w-0">
         <div className="sticky top-22">
           <div className="space-y-2 sm:flex sm:flex-col">
@@ -68,7 +74,7 @@ export default function ProjectsClient({ projects }: { projects: Project[] }) {
           ))}
         </div>
       </div>
-    </>
+    </motion.div>
   );
 }
 

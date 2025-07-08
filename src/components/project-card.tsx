@@ -23,12 +23,22 @@ export default function ProjectCard({ project }: { project: Project }) {
           alt={project.title}
           width={484}
           height={200}
-          className="border border/5 rounded-sm"
+          className="border border/5 rounded-sm select-none"
         />
       </CardContent>
       <CardHeader className="px-4 py-0">
         <CardTitle>{project.title}</CardTitle>
         <CardDescription>{project.description}</CardDescription>
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs bg-gray-100 dark:bg-zinc-900 px-2 py-1 rounded-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </CardHeader>
       <CardFooter className="px-4 py-0 gap-2">
         <Link href={project.url} target="_blank">

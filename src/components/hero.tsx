@@ -55,7 +55,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Link href="/Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button size="lg">
                 <FileText className="mr-2 h-5 w-5" />
                 Resume

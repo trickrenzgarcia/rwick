@@ -4,6 +4,9 @@ CREATE TABLE `projects` (
 	`description` text NOT NULL,
 	`image` text NOT NULL,
 	`url` text NOT NULL,
+	`repo` text,
+	`is_visible` text DEFAULT 'true' NOT NULL,
+	`is_private` text DEFAULT 'false' NOT NULL,
 	`tags` text DEFAULT '[]' NOT NULL,
 	`created_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL
 );

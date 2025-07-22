@@ -41,11 +41,18 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
       </CardHeader>
       <CardFooter className="px-4 py-0 gap-2">
-        <Link href={project.url} target="_blank">
-          <Button variant="outline" className="rounded-xs">
-            <Globe /> See Demo
+        {project.isPrivate === "false" ? (
+          <Link href={project.url} target="_blank">
+            <Button variant="outline" className="rounded-xs">
+              <Globe /> See Demo
+            </Button>
+          </Link>
+        ) : (
+          <Button variant="outline" className="rounded-xs" disabled>
+            <Globe /> Private
           </Button>
-        </Link>
+        )}
+        
         {project.repo ? (
           <Link href={project.repo} target="_blank">
             <Button variant="outline" className="rounded-xs">

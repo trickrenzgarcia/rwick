@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/context";
-import Navbar from '@/components/navbar';
-import { Poppins } from 'next/font/google';
-import Footer from '@/components/footer';
+import Navbar from "@/components/navbar";
+import { Poppins } from "next/font/google";
+import Footer from "@/components/footer";
+import { SessionProvider } from "next-auth/react";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-poppins",
-})
+});
 
 export const metadata: Metadata = {
   title: "Patrick Renz Garcia's Portfolio",
@@ -55,15 +57,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Navbar />
+            {children}
+            <Footer />
+            <Toaster />
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

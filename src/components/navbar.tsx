@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { NavImage, ModeToggle } from "./mode-toggle";
 import Link from 'next/link';
 import { motion } from "framer-motion"
+import Logout from './logout';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,8 +49,9 @@ const Navbar = () => {
               <NavLink href="/contact">Contact</NavLink>
             </li>
           </ul>
-          <div>
+          <div className='flex items-center gap-1'>
             <ModeToggle />
+            <Logout />
           </div>
         </div>
       </nav>

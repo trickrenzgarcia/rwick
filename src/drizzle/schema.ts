@@ -20,6 +20,8 @@ export const projects = sqliteTable("projects", {
   image: text("image").notNull(),
   url: text("url").notNull(),
   repo: text("repo"),
+  isVisible: text("is_visible").notNull().default("true"),
+  isPrivate: text("is_private").notNull().default("false"),
   tags: text("tags", { mode: "json" })
     .notNull()
     .default("[]")

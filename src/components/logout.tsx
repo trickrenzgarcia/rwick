@@ -3,15 +3,21 @@
 import { signOut, useSession } from 'next-auth/react'
 import { Button } from './ui/button'
 import { IconLogout } from "@tabler/icons-react"
+import { useEffect, useState } from 'react'
 
 export default function Logout() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
+  const [clientSession, setClientSession] = useState(session)
 
-  if (status === "loading") {
+  useEffect(() => {
+    setClientSession(session)
+  }, [session, status])
+
+  if (clientSession === null) {
     return null // Don't render anything while loading session
   }
 
-  if (status !== "authenticated") {
+  if (!clientSession) {
     return null; // Don't render the button if not authenticated
   }
 

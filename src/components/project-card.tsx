@@ -61,7 +61,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardFooter className="px-4 py-0 justify-between items-center">
         <div className="flex items-center gap-2">
-          {project.isPrivate === "false" ? (
+          {!project.isPrivate ? (
             <Link href={project.url} target="_blank">
               <Button variant="outline" className="rounded-xs">
                 <Globe /> See Demo

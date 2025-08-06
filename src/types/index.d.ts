@@ -6,7 +6,7 @@ export type Project = {
   url: string;
   repo: string | null;
   tags: string[];
-  isVisible: string;
-  isPrivate: string;
-  createdAt: string;
+  isVisible: boolean;
+  isPrivate: boolean;
+  createdAt: Date;
 };

@@ -1,22 +1,13 @@
 "use server";
 
 import { db } from "@/drizzle/db";
-import { projects } from "@/drizzle/schema";
+import { projects, insertProjectSchema } from "@/drizzle/schema";
 import { revalidatePath } from "next/cache";
+import { z } from "zod";
 
-type ProjectSchemaType = typeof projects.$inferSelect;
-interface ProjectData {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-  repo?: string;
-  tags?: string[];
-  isVisible?: string;
-  isPrivate?: string;
-}
+type ProjectInsertType = z.infer<typeof insertProjectSchema>;
 
-export async function addProject(data: ProjectSchemaType) {
+export async function addProject(data: ProjectInsertType) {
   await db.insert(projects).values(data);
   revalidatePath("/projects");
 }

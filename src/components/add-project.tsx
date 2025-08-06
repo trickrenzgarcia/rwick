@@ -78,10 +78,10 @@ export default function AddProject() {
         description: data.description,
         image: uploadResult.url!,
         url: data.url,
-        repo: data.repo || undefined,
-        tags: data.tags,
-        isVisible: data.isVisible ? "true" : "false",
-        isPrivate: data.isPrivate ? "true" : "false",
+        repo: data.repo || null,
+        tags: data.tags || [],
+        isVisible: data.isVisible,
+        isPrivate: data.isPrivate,
       });
 
       toast.success('Project added successfully!');

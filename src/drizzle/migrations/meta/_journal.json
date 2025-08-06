@@ -8,6 +8,13 @@
       "when": 1753219691494,
       "tag": "0000_aspiring_loa",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1754517819286,
+      "tag": "0001_handy_mathemanic",
+      "breakpoints": true
     }
   ]
 }

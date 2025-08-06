@@ -10,6 +10,7 @@ const schema = z.object({
 });
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     Credentials({
       name: "Credentials",

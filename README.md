@@ -24,7 +24,7 @@ Make sure you have Node.js 18+ installed on your machine.
 ### Clone the Repository
 
 ```bash
-git clone [<your-repo-url>](https://github.com/trickrenzgarcia/rwick)
+git clone https://github.com/trickrenzgarcia/rwick
 cd rwick
 ```
 

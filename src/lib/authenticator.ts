@@ -24,6 +24,6 @@ export async function authenticateUser({ email, password }: LoginOptions) {
     name: user.name,
     username: user.username,
     email: user.email,
-    createdAt: user.createdAt,
+    createdAt: user.createdAt.toISOString(),
   } satisfies User;
 }

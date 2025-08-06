@@ -4,6 +4,7 @@ import { db } from "@/drizzle/db";
 import { projects } from "@/drizzle/schema";
 import { revalidatePath } from "next/cache";
 
+type ProjectSchemaType = typeof projects.$inferSelect;
 interface ProjectData {
   title: string;
   description: string;
@@ -15,7 +16,7 @@ interface ProjectData {
   isPrivate?: string;
 }
 
-export async function addProject(data: ProjectData) {
+export async function addProject(data: ProjectSchemaType) {
   await db.insert(projects).values(data);
   revalidatePath("/projects");
 }

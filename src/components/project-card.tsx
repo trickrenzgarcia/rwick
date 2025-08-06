@@ -13,8 +13,27 @@ import { Button } from "./ui/button";
 import { Code, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { IconEdit, IconLoader2, IconTrash } from "@tabler/icons-react";
+import { toast } from "sonner";
+import * as React from "react";
+import { deleteProject } from "@/actions/delete-project";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const [deleteLoading, setDeleteLoading] = React.useState<boolean>(false)
+  const { data: session } = useSession()
+
+  const handleDelete = async () => {
+    try {
+      setDeleteLoading(true);
+      await deleteProject(project);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Failed to delete project. Please try again.');
+    } finally {
+      setDeleteLoading(false);
+    }
+  }
+
   return (
     <Card className="rounded-lg bg-transparent shadow-xs py-3">
       <CardContent className="px-4">
@@ -40,30 +59,54 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
       </CardHeader>
-      <CardFooter className="px-4 py-0 gap-2">
-        {project.isPrivate === "false" ? (
-          <Link href={project.url} target="_blank">
-            <Button variant="outline" className="rounded-xs">
-              <Globe /> See Demo
+      <CardFooter className="px-4 py-0 justify-between items-center">
+        <div className="flex items-center gap-2">
+          {project.isPrivate === "false" ? (
+            <Link href={project.url} target="_blank">
+              <Button variant="outline" className="rounded-xs">
+                <Globe /> See Demo
+              </Button>
+            </Link>
+          ) : (
+            <Button variant="outline" className="rounded-xs" disabled>
+              <Globe /> Private
             </Button>
-          </Link>
-        ) : (
-          <Button variant="outline" className="rounded-xs" disabled>
-            <Globe /> Private
-          </Button>
-        )}
-        
-        {project.repo ? (
-          <Link href={project.repo} target="_blank">
-            <Button variant="outline" className="rounded-xs">
+          )}
+          
+          {project.repo ? (
+            <Link href={project.repo} target="_blank">
+              <Button variant="outline" className="rounded-xs">
+                <Code /> Source Code
+              </Button>
+            </Link>
+          ) : (
+            <Button variant="outline" className="rounded-xs" disabled>
               <Code /> Source Code
             </Button>
-          </Link>
-        ) : (
-          <Button variant="outline" className="rounded-xs" disabled>
-            <Code /> Source Code
-          </Button>
-        )}
+          )}
+        </div>
+        {session?.user ? (
+          <div className="flex gap-1">
+            <Button
+              variant="default"
+              className="rounded-xs bg-blue-500/80 text-white hover:bg-blue-500/70"
+              size="sm"
+              disabled={deleteLoading}
+            >
+              <IconEdit />
+            </Button>
+            <Button
+              variant="default"
+              onClick={handleDelete}
+              className="rounded-xs bg-red-500/80 text-white hover:bg-red-500/70"
+              size="sm"
+              disabled={deleteLoading}
+            >
+              {deleteLoading ? <IconLoader2 className="animate-spin" /> : <IconTrash />}
+            </Button>
+          </div>
+        ) : null}
+        
       </CardFooter>
     </Card>
   );

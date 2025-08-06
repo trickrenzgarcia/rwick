@@ -93,7 +93,6 @@ export default function AddProject() {
         fileInputRef.current.value = '';
       }
     } catch (error) {
-      console.error('Error adding project:', error);
       toast.error(error instanceof Error ? error.message : 'Failed to add project. Please try again.');
     } finally {
       setIsUploading(false);

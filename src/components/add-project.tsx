@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from './ui/form';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { addProject } from '@/actions/add-project';
+import { addProject } from '@/actions/add-actions';
 import { uploadImageToSupabaseServer } from '@/actions/upload-image';
 import { toast } from 'sonner';
 

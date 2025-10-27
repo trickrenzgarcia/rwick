@@ -5,8 +5,7 @@ import ProjectCard from "./project-card";
 import { Project } from "@/types";
 import { ProjectFilterList } from './project-filter-list';
 import { useSession } from "next-auth/react"
-import { motion } from "framer-motion"
-import { Button } from './ui/button';
+import { motion } from "framer-motion";
 import AddProject from './add-project';
 
 const filterTags: string[] = [

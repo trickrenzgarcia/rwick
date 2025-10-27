@@ -1,7 +1,7 @@
-"use server";
+'use server';
 
-import { signIn, signOut } from "@/lib/auth";
-import { AuthError } from "next-auth";
+import { signIn, signOut } from '@/lib/auth';
+import { AuthError } from 'next-auth';
 
 type LoginOptions = {
   email: string;
@@ -10,8 +10,8 @@ type LoginOptions = {
 
 export async function login({ email, password }: LoginOptions) {
   try {
-    await signIn("credentials", {
-      redirectTo: "/",
+    await signIn('credentials', {
+      redirectTo: '/',
       email,
       password,
     });
@@ -19,10 +19,10 @@ export async function login({ email, password }: LoginOptions) {
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
-        case "CredentialsSignin":
-          return { success: false, error: "Invalid email or password." };
+        case 'CredentialsSignin':
+          return { success: false, error: 'Invalid email or password.' };
         default:
-          return { success: false, error: "Something went wrong." };
+          return { success: false, error: 'Something went wrong.' };
       }
     }
     throw error;
@@ -31,6 +31,6 @@ export async function login({ email, password }: LoginOptions) {
 
 export async function logout() {
   await signOut({
-    redirectTo: "/",
+    redirectTo: '/',
   });
 }

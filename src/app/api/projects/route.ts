@@ -1,10 +1,10 @@
-import { db } from "@/drizzle/db";
-import { Effect } from "effect";
-import { NextResponse } from "next/server";
+import { db } from '@/drizzle/db';
+import { Effect } from 'effect';
+import { NextResponse } from 'next/server';
 
 const getProjects = () => {
   const program = Effect.tryPromise({
-    try: () => db.query.projects.findMany({ limit: 50 }),
+    try: () => db.query.projects.findMany({ limit: 100 }),
     catch: (unknown) => new Error(`Something went wrong ${unknown}`),
   });
 

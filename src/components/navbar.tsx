@@ -43,9 +43,6 @@ const Navbar = () => {
               <NavLink href="/projects">Projects</NavLink>
             </li>
             <li>
-              <NavLink href="/services">Services</NavLink>
-            </li>
-            <li>
               <NavLink href="/contact">Contact</NavLink>
             </li>
           </ul>

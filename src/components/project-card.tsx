@@ -17,7 +17,7 @@ import { useSession } from "next-auth/react";
 import { IconEdit, IconLoader2, IconTrash } from "@tabler/icons-react";
 import { toast } from "sonner";
 import * as React from "react";
-import { deleteProject } from "@/actions/delete-project";
+import { deleteProject } from "@/actions/delete-actions";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [deleteLoading, setDeleteLoading] = React.useState<boolean>(false)
@@ -26,7 +26,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const handleDelete = async () => {
     try {
       setDeleteLoading(true);
-      await deleteProject(project);
+      await deleteProject(project.id);
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to delete project. Please try again.');
     } finally {

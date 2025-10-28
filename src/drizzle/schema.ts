@@ -51,6 +51,7 @@ export const connections = pgTable('connections', {
   email: text('email').notNull(),
   phone: text('phone'),
   message: text('message').notNull(),
+  browserId: text('browser_id').notNull(),
   createdAt: timestamp('created_at')
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),

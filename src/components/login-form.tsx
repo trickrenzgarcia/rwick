@@ -55,8 +55,7 @@ export default function LoginForm({
       if (!result.success && result.error) {
         setError(result.error);
       }
-    } catch (error) {
-      console.error('Login error:', error);
+    } catch {
       setError("An unexpected error occurred. Please try again.");
     } finally {
       setLoading(false);

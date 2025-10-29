@@ -43,7 +43,6 @@ export async function uploadImageToSupabaseServer(
       });
 
     if (error) {
-      console.error('Storage upload error:', error);
       return { success: false, error: `Upload failed: ${error.message}` };
     }
 

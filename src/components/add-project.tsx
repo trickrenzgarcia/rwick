@@ -28,6 +28,7 @@ type ProjectFormData = z.infer<typeof schema>;
 const selectTags: string[] = [
   "AI",
   "Blockchain",
+  "E-Commerce",
   "Firebase",
   "JavaScript",
   "Next.js",

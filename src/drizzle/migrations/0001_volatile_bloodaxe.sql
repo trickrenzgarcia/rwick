@@ -1,0 +1,1 @@
+ALTER TABLE "projects" ADD COLUMN "contents" json DEFAULT '[]'::json NOT NULL;

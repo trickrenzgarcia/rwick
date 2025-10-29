@@ -11,6 +11,7 @@ import AddProject from './add-project';
 const filterTags: string[] = [
   "AI",
   "Blockchain",
+  "E-Commerce",
   "Firebase",
   "JavaScript",
   "Next.js",
@@ -41,6 +42,8 @@ export default function ProjectsClient({ projects }: { projects: Project[] }) {
       checked ? [...prev, tag] : prev.filter((t) => t !== tag)
     );
   };
+
+  console.log("Filtered Projects:", filteredProjects);
 
   return (
     <motion.div

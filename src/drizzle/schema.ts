@@ -8,6 +8,7 @@ import {
   boolean,
   json,
 } from 'drizzle-orm/pg-core';
+import { ProjectContent } from '@/types';
 
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
@@ -23,7 +24,9 @@ export const users = pgTable('users', {
 export const projects = pgTable('projects', {
   id: serial('id').primaryKey(),
   title: text('title').notNull(),
+  subtitle: text('subtitle'),
   description: text('description').notNull(),
+  contents: json('contents').notNull().default([]).$type<ProjectContent[]>(),
   image: text('image').notNull(),
   url: text('url').notNull(),
   repo: text('repo'),

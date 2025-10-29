@@ -14,3 +14,10 @@ export type InsertRecommendation = z.infer<
 export type Connections = typeof schema.connections.$inferSelect;
 
 export type InsertConnection = z.infer<typeof schema.insertConnectionSchema>;
+
+export type ProjectContent = {
+  id: string;
+  title: string;
+  description: string;
+  images?: string[];
+};

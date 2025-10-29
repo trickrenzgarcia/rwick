@@ -2,7 +2,7 @@
 
 An open-source portfolio website design built with [Next.js](https://nextjs.org), featuring modern UI components and animations. Feel free to use this design as inspiration or a starting point for your own portfolio!
 
-![Portfolio Preview](https://ldrwdfoxtsyelygntgpd.supabase.co/storage/v1/object/public/projects//portfolio_image.png)
+![Portfolio Preview](https://ldrwdfoxtsyelygntgpd.supabase.co/storage/v1/object/public/projects/portfolio.png)
 
 ## ✨ Features
 

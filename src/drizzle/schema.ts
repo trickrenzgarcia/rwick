@@ -37,6 +37,7 @@ export const projects = pgTable('projects', {
 
 export const recommendations = pgTable('recommendations', {
   id: serial('id').primaryKey(),
+  browserId: text('browser_id').notNull(),
   name: text('name').notNull(),
   profession: text('profession').notNull(),
   message: text('message').notNull(),
@@ -47,11 +48,11 @@ export const recommendations = pgTable('recommendations', {
 
 export const connections = pgTable('connections', {
   id: serial('id').primaryKey(),
+  browserId: text('browser_id').notNull(),
   name: text('name').notNull(),
   email: text('email').notNull(),
   phone: text('phone'),
   message: text('message').notNull(),
-  browserId: text('browser_id').notNull(),
   createdAt: timestamp('created_at')
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),

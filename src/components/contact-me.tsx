@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Separator } from './ui/separator';
 import { GlobeIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
 import { ContactForm } from './contact-form';
+import Link from 'next/link';
 
 export default function ContactMe() {
   return (
@@ -23,15 +24,27 @@ export default function ContactMe() {
               <ul className='mt-6 flex flex-col gap-4'>
                 <li className='flex items-center gap-2'>
                   <PhoneIcon className='size-5' />
-                  <span className='font-light'>+63 994-328-1579</span>
+                  <Link
+                    className='font-light hover:underline underline-offset-4'
+                    href='tel:+639943281579'
+                    aria-label='Call Patrick Renz Garcia'
+                  >
+                    +63 994-328-1579
+                  </Link>
                 </li>
                 <li className='flex items-center gap-3'>
                   <MailIcon className='size-5' />
-                  <span className='font-light'>trickrenzgarcia@gmail.com</span>
+                  <Link
+                    className='font-light hover:underline underline-offset-4'
+                    href='mailto:trickrenzgarcia@gmail.com'
+                    aria-label='Email Patrick Renz Garcia'
+                  >
+                    trickrenzgarcia@gmail.com
+                  </Link>
                 </li>
                 <li className='flex items-center gap-3'>
                   <GlobeIcon className='size-5' />
-                  <span className='font-light'>www.rwick.vercel.app</span>
+                  <span className='font-light'>rwick.vercel.app</span>
                 </li>
                 <li className='flex items-center gap-3'>
                   <MapPinIcon className='size-5' />

@@ -1,5 +1,6 @@
 'use client';
 
+import { use, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import {
@@ -14,6 +15,10 @@ import { z } from 'zod';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
+import { BrowserIdContext } from './context/browser-id';
+import { toast } from 'sonner';
+import { addConnection } from '@/actions/add-actions';
+import { Spinner } from './ui/spinner';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters long'),
@@ -31,6 +36,9 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export function ContactForm() {
+  const browserId = use(BrowserIdContext);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -42,7 +50,29 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log(data);
+    try {
+      // Prevent multiple submissions
+      setIsSubmitting(true);
+
+      // Call the server action to add a connection
+      await addConnection({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+        browserId: browserId ? browserId : 'unknown',
+      });
+
+      toast.info('Your message has been sent!');
+
+      form.reset();
+    } catch (error) {
+      // Handle errors appropriately
+      toast.error(error instanceof Error ? error.message : 'Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+      
+    }
   };
 
   return (
@@ -125,7 +155,10 @@ export function ContactForm() {
           )}
         />
 
-        <Button type='submit'>Send Message</Button>
+        <Button type='submit' disabled={isSubmitting}>
+          {isSubmitting && <Spinner />}
+          {isSubmitting ? 'Sending...' : 'Send Message'}
+        </Button>
       </form>
     </Form>
   );

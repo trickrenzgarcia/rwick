@@ -19,6 +19,7 @@ import { BrowserIdContext } from './context/browser-id';
 import { toast } from 'sonner';
 import { addConnection } from '@/actions/add-actions';
 import { Spinner } from './ui/spinner';
+import { sendEmail } from '@/actions/mailer';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters long'),
@@ -62,6 +63,8 @@ export function ContactForm() {
         message: data.message,
         browserId: browserId ? browserId : 'unknown',
       });
+
+      await sendEmail(data)
 
       toast.info('Your message has been sent!');
 

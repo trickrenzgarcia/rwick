@@ -17,7 +17,6 @@ const filterTags: string[] = [
   "Next.js",
   "PHP",
   "React.js",
-  "Shadcn",
   "TailwindCSS",
   "TypeScript",
 ];
@@ -42,8 +41,6 @@ export default function ProjectsClient({ projects }: { projects: Project[] }) {
       checked ? [...prev, tag] : prev.filter((t) => t !== tag)
     );
   };
-
-  console.log("Filtered Projects:", filteredProjects);
 
   return (
     <motion.div

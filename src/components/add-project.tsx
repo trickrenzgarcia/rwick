@@ -34,7 +34,6 @@ const selectTags: string[] = [
   "Next.js",
   "PHP",
   "React.js",
-  "Shadcn",
   "TailwindCSS",
   "TypeScript",
 ];

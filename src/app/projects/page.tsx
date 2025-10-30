@@ -7,6 +7,7 @@ async function fetchProjects() {
 }
 
 export default async function ProjectsPage() {
+  
   const projects = await fetchProjects();
 
   return (

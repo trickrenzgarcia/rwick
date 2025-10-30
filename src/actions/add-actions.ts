@@ -22,16 +22,6 @@ export async function addRecommendation(data: InsertRecommendation) {
 }
 
 export async function addConnection(data: InsertConnection) {
-  const connection = await db.query.connections.findFirst({
-    where: eq(connections.browserId, data.browserId),
-  });
-
-  if (connection) {
-    throw new Error(
-      'Please wait a moment before submitting another connection. Thank you!'
-    );
-  }
-
   await db.insert(connections).values(data);
   revalidateTag('connections', 'max');
 }

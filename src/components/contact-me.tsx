@@ -6,7 +6,6 @@ import { GlobeIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
 import { ContactForm } from './contact-form';
 
 export default function ContactMe() {
-  
   return (
     <motion.main
       initial={{ opacity: 0, y: 50 }}
@@ -25,7 +24,7 @@ export default function ContactMe() {
                 <li className='flex items-center gap-2'>
                   <PhoneIcon className='size-5' />
                   <a
-                    className='font-light hover:underline underline-offset-4'
+                    className='font-light'
                     href='tel:+639943281579'
                     aria-label='Call Patrick Renz Garcia'
                   >
@@ -35,7 +34,7 @@ export default function ContactMe() {
                 <li className='flex items-center gap-3'>
                   <MailIcon className='size-5' />
                   <a
-                    className='font-light hover:underline underline-offset-4'
+                    className='font-light'
                     href='mailto:trickrenzgarcia@gmail.com'
                     aria-label='Email Patrick Renz Garcia'
                   >

@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { FileText } from "lucide-react"
-import { FloatingPaper } from "@/components/floating-paper"
-import { RoboAnimation } from "@/components/robo-animation"
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { FileText } from "lucide-react";
+import { FloatingPaper } from "@/components/floating-paper";
+import { RoboAnimation } from "@/components/robo-animation";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   // This component is client-side only to ensure animations and interactions work correctly
   useEffect(() => {
@@ -30,7 +30,11 @@ export default function Hero() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
               Patrick Renz
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-600 to-pink-600">
@@ -55,7 +59,11 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link href="/Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="/Patrick_Renz_Garcia_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button size="lg">
                 <FileText className="mr-2 h-5 w-5" />
                 Resume
@@ -75,5 +83,5 @@ export default function Hero() {
         <RoboAnimation />
       </div>
     </div>
-  )
+  );
 }
